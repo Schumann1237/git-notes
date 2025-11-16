@@ -71,4 +71,121 @@ with the asterisk * pointing to new-features.
 
 ![branching](.assets/branching-out.png)
 
-In this version let's add a file called `webpage-feature.py`
+In this version let's add a file called `webpage_features.py`, and then we do our stage and commit routine.
+
+~~~sh
+git add webpage_features.py
+git commit -m "Added webpage features to app"
+~~~
+
+When you do `git log --oneline`, you should have this output:
+~~~sh
+6357ff1 (HEAD -> new-features) Added webpage features to app
+a64d9d5 (master) delete bug_errors.py and new_app_features.py
+dfd7187 Added new features to app
+c5e6ec4 fixed bugs in bug_errors.py
+aee0263 My first commit
+~~~
+
+What this tells us is that our master branch is still on `a64d9d5`. Remember, we branched out from that commit, so we our **HEAD** is on our `new-features` branch.
+
+Now, our project looks like this.
+
+![committing in a new branch](.assets/new-features.png)
+
+**Awesome**, you have just committed your first file in a new branch. Let's say you're done with the new features for a while, and let's work on some minor tweaks in the stable version of your app.
+
+Say you need to write your `README.md` so that users can understand how to use your app.
+
+Let's go back into our master branch by doing.
+~~~sh
+git checkout master
+~~~
+We should always verify by doing `git log --oneline`
+~~~sh
+a64d9d5 (HEAD -> master) delete bug_errors.py and new_app_features.py
+dfd7187 Added new features to app
+c5e6ec4 fixed bugs in bug_errors.py
+aee0263 My first commit
+~~~
+
+Great, our HEAD is at our master branch. So now, let's type this into our `README.md`
+~~~md
+# Random App for specific problem
+## Requirements:
+-
+-
+-
+
+## How to install:
+1.
+2.
+3.
+~~~
+
+Then we can stage and commit.
+~~~sh
+git add README.md
+git commit -m "update README.md"
+~~~
+
+When doing `git log --oneline`, we should get:
+~~~sh
+d699f14 (HEAD -> master) update README.md
+a64d9d5 delete bug_errors.py and new_app_features.py
+dfd7187 Added new features to app
+c5e6ec4 fixed bugs in bug_errors.py
+aee0263 My first commit
+~~~
+
+Visually, this is how our graph looks like now.
+
+![current git graph](.assets/new_commit_on_master.png)
+
+Wonderful. The beauty of Git lies before your very eyes.
+
+## Merging
+So far, we have
+
+- [x] Updated our README.md on the master branch
+- [x] Create a new branch called `new-features` and committed a feature file `webpage_features.py` on the branch
+
+Let's say, upper management is satisfied with our feature and wants us to integrate the new features into our app.
+
+It's time to `merge` the branches.
+
+### What is merging?
+Merging is simply asking Git to combine the changes from one branch into another.
+
+But before we `merge`, We need to checkout to the branch that we want to `merge` into (often `main` or `master`).
+
+Let's check what branch we are on right now.
+~~~sh
+  master
+* new-features
+~~~
+Since we are on the `new-features` branch, let's `git checkout master`
+~~~sh
+git checkout master
+~~~
+
+And then only can we merge. The command for this is `git merge -m "message"`
+
+~~~sh
+git merge new-features -m "Merge branch 'new-features'"
+~~~
+
+Now let's do `git log --oneline` and see what's happening:
+~~~sh
+d94428e (HEAD -> master) Merge branch 'new-features'
+d699f14 update README.md
+6357ff1 (new-features) Added webpage features to app
+a64d9d5 delete bug_errors.py and new_app_features.py
+dfd7187 Added new features to app
+c5e6ec4 fixed bugs in bug_errors.py
+aee0263 My first commit
+~~~
+
+Visually:
+
+![completed_merge](.assets/completed-merge.png)
