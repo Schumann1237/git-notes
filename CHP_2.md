@@ -168,14 +168,14 @@ Master refers to the branch name. We will go into more detail about branches aft
 #### Head
 The head is a pointer that tells Git which version of the project you are currently looking at. Whenever you commit something new, Git automatically moves HEAD forward to that newest version.
 
-![Alt Text](.assets/HEAD.png)
+![Head](.assets/HEAD.png)
 
 #### Detached Head
 Normally, head points to the **latest version** of the project you are working on. 
 
 A head is "detached" when you tell Git to look at another version of the project **instead** of the latest.
 
-![Alt Text](.assets/DETACHED-HEAD.png)
+![Detached Head](.assets/DETACHED-HEAD.png)
 
 But how do we move to another version of the project? 
 
