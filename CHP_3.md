@@ -69,7 +69,7 @@ Now if you do `git branch -a` again, you will get:
 with the asterisk * pointing to new-features.
 > `git checkout new-features` can also be done before creating the `new-features` branch as the command will just create the branch for you and instantly move you there.
 
-![branching](.assets/branching-out.png)
+![branching](assets/branching-out.png)
 
 In this version let's add a file called `webpage_features.py`, and then we do our stage and commit routine.
 
@@ -91,7 +91,7 @@ What this tells us is that our master branch is still on `a64d9d5`. Remember, we
 
 Now, our project looks like this.
 
-![committing in a new branch](.assets/new-features.png)
+![committing in a new branch](assets/new-features.png)
 
 **Awesome**, you have just committed your first file in a new branch. Let's say you're done with the new features for a while, and let's work on some minor tweaks in the stable version of your app.
 
@@ -140,7 +140,7 @@ aee0263 My first commit
 
 Visually, this is how our graph looks like now.
 
-![current git graph](.assets/new_commit_on_master.png)
+![current git graph](assets/new_commit_on_master.png)
 
 Wonderful. The beauty of Git lies before your very eyes.
 
@@ -188,4 +188,4 @@ aee0263 My first commit
 
 Visually:
 
-![completed_merge](.assets/completed-merge.png)
+![completed_merge](assets/completed-merge.png)
